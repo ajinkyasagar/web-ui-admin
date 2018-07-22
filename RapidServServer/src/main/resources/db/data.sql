@@ -1,3 +1,0 @@
-insert into T_TICKET(CREATEDBY, DESCRIPTION) values ('AMEY','AC not working');
-insert into T_TICKET(CREATEDBY, DESCRIPTION) values ('AMEY1','AC not working');
-insert into T_TICKET(CREATEDBY, DESCRIPTION) values ('AMEY2','AC not working');;
