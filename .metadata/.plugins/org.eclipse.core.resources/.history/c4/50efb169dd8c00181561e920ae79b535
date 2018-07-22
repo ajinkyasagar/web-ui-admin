@@ -1,0 +1,21 @@
+package com.main.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class TicketController {
+
+	@RequestMapping("/Tickets")
+	public List<Ticket> getAllTickets(){ 
+		tickets = new ArrayList<>();
+		ticketRepository.findAll().forEach(ticket -> tickets.add(ticket));
+		return ticketsl
+	
+	}
+	
+	
+}

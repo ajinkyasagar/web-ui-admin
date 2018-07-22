@@ -1,0 +1,21 @@
+package com.main.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="T_TICKET")
+public class Ticket {
+	
+	private static final long serialVersionUID = 21313L;
+	
+	@Id
+	protected Long id;
+	
+	@Column(name="CREATEDBY")
+	protected String createdBy;
+	
+	@Column(name="DESCRIPTION")
+	protected String description;
+
+}
