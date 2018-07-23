@@ -9,6 +9,7 @@ import { CreateTicketComponent } from './create-ticket/create-ticket.component';
 import { ViewTicketButtonComponent } from './view-ticket-button/view-ticket-button.component';
 import { OpenTicketsComponent } from './open-tickets/open-tickets.component';
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
+import { AssignTicketComponent } from './assign-ticket/assign-ticket.component';
 
 const appRoutes: Routes = [
       { path:'dashboard',component:DashboardComponent }
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     CreateTicketComponent,
     ViewTicketButtonComponent,
     OpenTicketsComponent,
-    ViewTicketComponent
+    ViewTicketComponent,
+    AssignTicketComponent
   ],
   imports: [
     BrowserModule,

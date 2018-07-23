@@ -1,6 +1,8 @@
 import { Component, OnInit,EventEmitter } from '@angular/core';
 import { ViewTicketButtonComponent } from '../view-ticket-button/view-ticket-button.component';
 
+ import {MaterializeAction} from 'angular2-materialize';
+
 
 @Component({
   selector: 'app-open-tickets',
@@ -9,7 +11,8 @@ import { ViewTicketButtonComponent } from '../view-ticket-button/view-ticket-but
 })
 export class OpenTicketsComponent implements OnInit {
 
-
+modalActions = new EventEmitter<string|MaterializeAction>();
+  
   constructor() { }
 
   settings = {
@@ -76,11 +79,15 @@ export class OpenTicketsComponent implements OnInit {
       contact: "324324",
       view: 'view',
       status: '<div class="rcorners-teal">SUBMITTED</div>',
-      action: '<div class="actionbtn" style="vertical-align:middle"><span>Assign</span></div>'
+      action: '<div href="#modal1" class="actionbtn modal-trigger" style="vertical-align:middle"><span>Assign</span></div>'
     }
   ];
 
-
+  
+   closeModal() {
+    console.log("inclose");     
+    this.modalActions.emit({action:"modal",params:['close']});
+  }
   ngOnInit() {
   }
 
