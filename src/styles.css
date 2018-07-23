@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+.container-admin-grid {
+    float:left;
+    margin-top: 10px;
+    margin-left:20px;
+    max-width: 1280px;
+    width: 60%;
+    padding:5px;
+}
+
+.font-color {
+   color:white;
+}
