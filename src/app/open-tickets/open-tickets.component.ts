@@ -29,6 +29,10 @@ export class OpenTicketsComponent implements OnInit {
         title: 'Status',
         type: 'html'
       },
+      action:{
+      title: 'Action',
+      type: 'html'  
+      },
       view: {
         title: 'View',
         type: 'custom',
@@ -50,6 +54,7 @@ export class OpenTicketsComponent implements OnInit {
       contact: "324324",
       view: 'view',
       status: '<div class="rcorners-teal">IN-PROGRESS</div>'
+      
     },
     {
       ticketid: "2322324",
@@ -64,6 +69,14 @@ export class OpenTicketsComponent implements OnInit {
       contact: "324324",
       view: 'view',
       status: '<div class="rcorners-red">REJECTED</div>'
+    },
+    {
+      ticketid: "112343543",
+      customername: "test 4",
+      contact: "324324",
+      view: 'view',
+      status: '<div class="rcorners-teal">SUBMITTED</div>',
+      action: '<div class="actionbtn" style="vertical-align:middle"><span>Assign</span></div>'
     }
   ];
 
