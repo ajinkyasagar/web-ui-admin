@@ -11,3 +11,33 @@
 .font-color {
    color:white;
 }
+
+.rcorners-teal {
+    border-radius: 15px;
+    background: #009688;
+    color:white;
+    padding: 5px; 
+    width: 120px;
+    height: 30px; 
+    text-align:center;
+}
+
+.rcorners-blue {
+    border-radius: 15px;
+    background: #01579b;
+    color:white;
+    padding: 5px; 
+    width: 120px;
+    height: 30px; 
+    text-align:center;
+}
+
+.rcorners-red {
+    border-radius: 15px;
+    background: #e53935;
+    color:white;
+    padding: 5px; 
+    width: 120px;
+    height: 30px; 
+    text-align:center;
+}

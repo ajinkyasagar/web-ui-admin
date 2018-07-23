@@ -3,11 +3,11 @@ import { ViewTicketButtonComponent } from '../view-ticket-button/view-ticket-but
 
 
 @Component({
-  selector: 'app-open-tickets-compoenent',
-  templateUrl: './open-tickets-compoenent.component.html',
-  styleUrls: ['./open-tickets-compoenent.component.css']
+  selector: 'app-open-tickets',
+  templateUrl: './open-tickets.component.html',
+  styleUrls: ['./open-tickets.component.css']
 })
-export class OpenTicketsCompoenentComponent implements OnInit {
+export class OpenTicketsComponent implements OnInit {
 
 
   constructor() { }
@@ -49,21 +49,21 @@ export class OpenTicketsCompoenentComponent implements OnInit {
       customername: "test1",
       contact: "324324",
       view: 'view',
-      status: '<div class="btn teal lighten-2">IN-PROGRESS</div>'
+      status: '<div class="rcorners-teal">IN-PROGRESS</div>'
     },
     {
       ticketid: "2322324",
       customername: "test2",
       contact: "32424324",
       view: 'view',
-      status: '<div class="btn pink accent-1">ASSIGNED</div>'
+      status: '<div class="rcorners-blue">ASSIGNED</div>'
     },
     {
       ticketid: "112343543",
       customername: "test 4",
       contact: "324324",
       view: 'view',
-      status: '<div class="btn red">Rejected</div>'
+      status: '<div class="rcorners-red">REJECTED</div>'
     }
   ];
 

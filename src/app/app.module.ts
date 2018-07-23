@@ -7,7 +7,7 @@ import { RouterModule,Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateTicketComponent } from './create-ticket/create-ticket.component';
 import { ViewTicketButtonComponent } from './view-ticket-button/view-ticket-button.component';
-import { OpenTicketsCompoenentComponent } from './open-tickets-compoenent/open-tickets-compoenent.component';
+import { OpenTicketsComponent } from './open-tickets/open-tickets.component';
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 
 const appRoutes: Routes = [
@@ -24,7 +24,7 @@ const appRoutes: Routes = [
     DashboardComponent,
     CreateTicketComponent,
     ViewTicketButtonComponent,
-    OpenTicketsCompoenentComponent,
+    OpenTicketsComponent,
     ViewTicketComponent
   ],
   imports: [
