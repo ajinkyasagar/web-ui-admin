@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import {MaterializeAction} from 'angular2-materialize';
 
 @Component({
   selector: 'app-view-ticket',
@@ -7,6 +8,7 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./view-ticket.component.css']
 })
 export class ViewTicketComponent implements OnInit {
+  modalActions = new EventEmitter<string|MaterializeAction>();
   ticketId: string;
   currentTicket:any;
   ticketData = [{ 
@@ -46,6 +48,9 @@ export class ViewTicketComponent implements OnInit {
     }
   }
 
+   closeModal() { 
+    this.modalActions.emit({action:"modal",params:['close']});
+  }
   ngOnInit() {
 
   }

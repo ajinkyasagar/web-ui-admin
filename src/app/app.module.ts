@@ -10,11 +10,14 @@ import { ViewTicketButtonComponent } from './view-ticket-button/view-ticket-butt
 import { OpenTicketsComponent } from './open-tickets/open-tickets.component';
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 import { AssignTicketComponent } from './assign-ticket/assign-ticket.component';
+import { HttpClientModule } from '@angular/common/http';
+import {TicketService} from './services/ticket.service';
 
 const appRoutes: Routes = [
       { path:'dashboard',component:DashboardComponent }
     , { path:'createticket',component:CreateTicketComponent }
     ,{ path:'viewticket/:id',component:ViewTicketComponent }
+    ,{ path:'assignticket/:id',component:AssignTicketComponent}
     ];
 
 
@@ -33,9 +36,10 @@ const appRoutes: Routes = [
     BrowserModule,
     MaterializeModule,
     RouterModule.forRoot(appRoutes),
-     Ng2SmartTableModule
+     Ng2SmartTableModule,
+     HttpClientModule
   ],
-  providers: [],
+  providers: [TicketService],
   bootstrap: [AppComponent],
   entryComponents:[ViewTicketButtonComponent]
 })

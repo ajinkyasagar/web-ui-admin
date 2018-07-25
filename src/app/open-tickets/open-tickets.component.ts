@@ -1,40 +1,47 @@
-import { Component, OnInit,EventEmitter } from '@angular/core';
-import { ViewTicketButtonComponent } from '../view-ticket-button/view-ticket-button.component';
-
- import {MaterializeAction} from 'angular2-materialize';
-
+import {Component, OnInit, EventEmitter} from '@angular/core';
+import {ViewTicketButtonComponent} from '../view-ticket-button/view-ticket-button.component';
+import {Router} from "@angular/router";
+import {HttpClient} from '@angular/common/http';
+import {ServerDataSource,LocalDataSource} from 'ng2-smart-table';
+import {TicketService} from '../services/ticket.service';
 
 @Component({
   selector: 'app-open-tickets',
   templateUrl: './open-tickets.component.html',
-  styleUrls: ['./open-tickets.component.css']
+  styleUrls: ['./open-tickets.component.css'],
+  providers: [TicketService]
 })
 export class OpenTicketsComponent implements OnInit {
-
-modalActions = new EventEmitter<string|MaterializeAction>();
-  
-  constructor() { }
-
-  settings = {
-    actions: { add: false, edit: false, delete: false },
-  
+  public enableAssign: boolean;
+  public currentTicketId: string;
+  source: ServerDataSource;
+  localsource : LocalDataSource;
+  constructor(private router: Router,http: HttpClient, private ticketService: TicketService) {
+     this.localsource=new LocalDataSource();
+    this.source = new ServerDataSource(http, {endPoint: 'http://localhost:8080/OpenTickets'});
+    this.ticketService.getTickets().subscribe((data) => {
+      console.log(data);
+      this.localsource.load(data);
+    });
+  }
+   
+   settings2 = {
+    actions: {add: false, edit: false, delete: false},
     columns: {
-      ticketid: {
-        title: 'ID',
+      id: {
+        title: 'Ticket ID',
+        filter: true
       },
-      customername: {
-        title: 'Customer Name'
+      createdBy: {
+        title: 'Initiator'
       },
-      contact: {
-        title: 'Contact No.'
+      description: {
+        title: 'Description'
       },
-      status: {
-        title: 'Status',
-        type: 'html'
-      },
-      action:{
-      title: 'Action',
-      type: 'html'  
+      status:{
+      title:'Status',
+      type:'html',
+      valuePrepareFunction : (cell,row) => { return '<div class="rcorners-teal">'+cell+'</div>';}
       },
       view: {
         title: 'View',
@@ -43,55 +50,35 @@ modalActions = new EventEmitter<string|MaterializeAction>();
         renderComponent: ViewTicketButtonComponent,
         onComponentInitFunction(instance) {
           instance.save.subscribe(row => {
-            alert(`${row.ticketid} saved!`)
+            alert(`${row.id} saved!`);
           });
         }
       }
-    }
+    },
   };
 
-  data = [
-    {
-      ticketid: "324234",
-      customername: "test1",
-      contact: "324324",
-      view: 'view',
-      status: '<div class="rcorners-teal">IN-PROGRESS</div>'
-      
-    },
-    {
-      ticketid: "2322324",
-      customername: "test2",
-      contact: "32424324",
-      view: 'view',
-      status: '<div class="rcorners-blue">ASSIGNED</div>'
-    },
-    {
-      ticketid: "112343543",
-      customername: "test 4",
-      contact: "324324",
-      view: 'view',
-      status: '<div class="rcorners-red">REJECTED</div>'
-    },
-    {
-      ticketid: "112343543",
-      customername: "test 4",
-      contact: "324324",
-      view: 'view',
-      status: '<div class="rcorners-teal">SUBMITTED</div>',
-      action: '<div href="#modal1" class="actionbtn modal-trigger" style="vertical-align:middle"><span>Assign</span></div>'
-    }
-  ];
-
-  
-   closeModal() {
-    console.log("inclose");     
-    this.modalActions.emit({action:"modal",params:['close']});
-  }
   ngOnInit() {
   }
+  onRowClick(event) {
+    console.log("on row click" + event);
+    if (event.isSelected) {
+      this.currentTicketId = event.selected[0].id;
+      if (event.selected[0].status.indexOf("SUBMITTED") > -1) {
+        this.enableAssign = true;
+      } else {
+        this.enableAssign = false;
+      }
+    }
 
-  render(){
+
+  }
+
+  onClickAssign() {
+    console.log(this.currentTicketId);
+    this.router.navigate(['assignticket', this.currentTicketId]);
+  }
+
+  render() {
     console.log("called function");
   }
 }

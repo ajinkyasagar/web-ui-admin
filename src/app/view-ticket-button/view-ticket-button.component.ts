@@ -31,6 +31,6 @@ export class ViewTicketButtonComponent implements ViewCell, OnInit {
   onClickView() {
     console.log(this.rowData);
     //this.save.emit(this.rowData);
-    this.router.navigate(['viewticket',this.rowData.ticketid]);
+    this.router.navigate(['viewticket',this.rowData.id]);
   }
 }

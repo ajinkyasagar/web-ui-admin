@@ -1,6 +1,6 @@
 <div class="container-admin-grid">
     <h6 style="color:#ee6e73; font-weight: bold">OPEN TICKETS</h6>
-   <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+   <ng2-smart-table (userRowSelect)="onRowClick($event)" [settings]="settings2" [source]="localsource"></ng2-smart-table>
+   <div class="actionbtn" *ngIf="enableAssign" (click)="onClickAssign()" style="vertical-align:middle"><span>Assign</span></div>
 </div>
 
-<app-assign-ticket></app-assign-ticket>

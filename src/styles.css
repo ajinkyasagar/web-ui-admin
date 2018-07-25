@@ -8,6 +8,24 @@
     padding:5px;
 }
 
+.container-assign-ticket{
+    float:left;
+    margin:5px;
+    background-color:#ffebee;
+    border-color:#424242;
+    border-radius: 3px;
+    width: 100%;
+    padding:5px;
+    height:100%;
+}
+
+html, body, #assign-window {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+ 
+
 .font-color {
    color:white;
 }
@@ -45,7 +63,7 @@
 .actionbtn {
     display: inline-block;
     border-radius: 15px;
-    background-color: #ff7043;
+    background-color: #4caf50;
     border: none;
     color: #FFFFFF;
     text-align: center;
