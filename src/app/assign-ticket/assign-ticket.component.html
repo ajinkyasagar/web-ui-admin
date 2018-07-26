@@ -1,3 +1,5 @@
 <div class="container-assign-ticket assign-window">
- 
+ 	 <h6 style="color:#ee6e73; font-weight: bold">Assign Ticket</h6>
+   <ng2-smart-table  [settings]="settingsresources" [source]="localsourceresources"></ng2-smart-table>
+   <div class="actionbtn" *ngIf="enableAssign" (click)="onClickAssign()" style="vertical-align:middle"><span>Assign</span></div>
 </div>

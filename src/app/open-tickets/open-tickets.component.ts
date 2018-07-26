@@ -2,7 +2,7 @@ import {Component, OnInit, EventEmitter} from '@angular/core';
 import {ViewTicketButtonComponent} from '../view-ticket-button/view-ticket-button.component';
 import {Router} from "@angular/router";
 import {HttpClient} from '@angular/common/http';
-import {ServerDataSource,LocalDataSource} from 'ng2-smart-table';
+import {ServerDataSource, LocalDataSource} from 'ng2-smart-table';
 import {TicketService} from '../services/ticket.service';
 
 @Component({
@@ -15,17 +15,17 @@ export class OpenTicketsComponent implements OnInit {
   public enableAssign: boolean;
   public currentTicketId: string;
   source: ServerDataSource;
-  localsource : LocalDataSource;
-  constructor(private router: Router,http: HttpClient, private ticketService: TicketService) {
-     this.localsource=new LocalDataSource();
-    this.source = new ServerDataSource(http, {endPoint: 'http://localhost:8080/OpenTickets'});
+  localsource: LocalDataSource;
+  constructor(private router: Router, http: HttpClient, private ticketService: TicketService) {
+    this.localsource = new LocalDataSource();
+    //    this.source = new ServerDataSource(http, {endPoint: 'http://localhost:8080/OpenTickets'});
     this.ticketService.getTickets().subscribe((data) => {
-      console.log(data);
-      this.localsource.load(data);
+    console.log(data);
+    this.localsource.load(data);
     });
   }
-   
-   settings2 = {
+
+  settings2 = {
     actions: {add: false, edit: false, delete: false},
     columns: {
       id: {
@@ -38,10 +38,10 @@ export class OpenTicketsComponent implements OnInit {
       description: {
         title: 'Description'
       },
-      status:{
-      title:'Status',
-      type:'html',
-      valuePrepareFunction : (cell,row) => { return '<div class="rcorners-teal">'+cell+'</div>';}
+      status: {
+        title: 'Status',
+        type: 'html',
+        valuePrepareFunction: (cell, row) => {return '<div class="rcorners-teal">' + cell + '</div>';}
       },
       view: {
         title: 'View',

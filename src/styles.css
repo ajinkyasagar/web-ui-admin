@@ -8,10 +8,13 @@
     padding:5px;
 }
 
+.nav-wrapper-dashboard{
+	background: linear-gradient(to right,#006064,#424242);
+}
+
 .container-assign-ticket{
     float:left;
     margin:5px;
-    background-color:#ffebee;
     border-color:#424242;
     border-radius: 3px;
     width: 100%;
