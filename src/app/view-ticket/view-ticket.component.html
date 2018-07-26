@@ -1,11 +1,7 @@
-<div style="color:#ee6e73;" class="container-ticket">
+<div *ngIf="isDataLoaded" style="color:#ee6e73;" class="container-ticket">
   <form class="col s4">
-    <h4 style="font-weight: bold">Ticket : {{ticketId}}</h4>
-    <h5 style="padding:20px">Customer Name : {{currentTicket.customerName}}</h5>
-    <h5 style="padding:20px">Contact : {{currentTicket.contact}}</h5>
+    <h4 style="font-weight: bold">Ticket : {{currentTicket.id}}</h4>
     <h5 style="padding:20px">Status : {{currentTicket.status}}</h5>
-    <h5 style="padding:20px">Address : {{currentTicket.address}}</h5>
-    <h5 style="padding:20px">Assigned To : {{currentTicket.assignedTo}}</h5>
   </form> 
   <a routerLink="/dashboard"  routerLinkActive="active" class="waves-effect waves-light btn"><i class="material-icons">arrow_back</i></a>
 </div>
